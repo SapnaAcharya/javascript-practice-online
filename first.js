@@ -485,3 +485,344 @@ function myFunction(msg, n) {
 }
 myFunction("I love JS"); //argument
 
+//Another example
+//Function -> 2 numbers, sum
+
+function sum(x, y) {
+    //local variable -> scope
+    s = x + y;
+    console.log(x);
+    return s;
+}
+
+let val = sum(3, 4);
+console.log(x);
+console.log(val);
+
+
+// sum function
+function Sum(a, b) {
+    s = a + b;
+    console.log("before return");
+    return s;
+    console.log("after return"); //return ke badd wala code execute hudaena
+}
+let value = sum(3, 4);
+console.log(value);
+
+//Arrow Functions: Compact way of writing a function
+//sum function
+function SUM(a , b) {
+    return a + b;
+}
+const o = 5;
+
+const arrowsum = (a, b) => {
+    console.log(a + b);
+};
+
+
+//multiplication function
+function mul(a, b) {
+    return a * b;
+}
+
+const arrowmul = (a, b) => {
+    console.log(a * b);
+};
+
+//Create a function using the "function" keyword that takes a string as an argument 
+// & returns the number of vowels in the string.
+
+function countvowels(str) {
+    let count = 0;
+    //"Apna college", count = 3
+    for(const char of str) {
+        if(char === "a" || char === "e" || char === "i" || char ==="o" || char ==="u"){
+            count++;
+        }
+    }
+    console.log(count);
+}
+
+//A callback: Here, it is afunction to execute for eah element in the array.
+// A callback is a function
+
+// Creates a new array with the results of some operation. The value its callback returns
+// are used to form new array.
+
+//We are given array of marks of students. Filter our of the marks of students that scored 90+.
+let MARKS = [97, 64, 32, 49, 99, 96, 86];
+let toppers = marks.filter((val) => {
+    return val > 90;
+});
+console.log(toppers);
+
+// Take a number n as an input from user.Create an array of numbers from 1 to n.
+// Use the reduce method to calculate sum of all numbers in the array.
+// Use the reduce method to calculate product all numbers in the array.
+let N = prompt("Enter a number :");
+let array =[];
+for (let i=1; i<=N; i++) {
+    arr[i-1] = i;
+}
+console.log(array);
+let sum = arr.reduce((res, curr) => {
+    return res + curr;
+});
+console.log("sum =", sum);
+let factorial = arr.reduce((res, curr) => {
+    return res * curr;
+});
+
+// DOM( Document Object Model)
+// Selecting with id: document.getElementById("myId")
+//Selecting with class: document.getElementsByClassName("myClass")
+// Selecting with tag: document.getElementsByTagName("p")
+
+//Query Selector: 
+//document.querySelector("myId / myClass / tag"): returns first element
+//document.querySelectorAll("myId / myClass / tag"): returns a NodeList
+
+let firstelement = document.querySelector("p");  //1st element
+console.log(firstelement);
+
+// <style> 
+let heading = document.getElementById("heading");
+console.dir(heading);
+
+let headings = document.getElementsByClassName("heading"); //returns 1st element
+console.dir(heading);
+
+let allelement = document.querySelectorAll("p");  //returns all element
+console.dir(allelement);
+
+//DOM Manipulation: Properties ; we can get or set elements
+//1. tagName: returns tag for element nodes
+//2. innerText: returns the text content of the element and all its children
+//3. innerHTML: returns the plain text or HTML contents in the element
+//4. textContent: returns textual content even for hidden elements
+
+// Practice 1: Create a H2 heading element with text - "Hello Javascript". Append "from Apna College students" 
+// to this text using JS.
+let h2 = document.querySelector("h2");
+console.dir(h2.innerText);
+h2.innerText = h2.innerText + " from Apna College Students";
+
+let divs = document.querySelectorAll(".box");
+divs[0].innerText = "new unique value 1";
+divs[1].innerText = "new unique value 2";
+divs[2].innerText = "new unique value 3";
+
+let divs = document.querySelectorAll(".box");
+let idx1 = 1;
+for (div of divs) {
+    div.innerText = `new unique value $(idx1)`;
+    idx1++;
+}
+
+//DOM Manipulation: Attributes:
+//1. getAttribute(attr) //to get the attribute value
+//2. setAttribute(attr,value) //to set the attribute val 
+
+//DOM Manipulation: Insert Elements
+// let el = document.createElement("div")
+
+//1. node.append(el) //add at the end of node (inside)
+//2. node.prepend(el) //adds at the start of node(inside)
+//3. node.before(el) //adds before the node(outside)
+//4. node.after(el) //adds after the node(outside)
+
+//Practice 1: Create a new button element. Give it a text "click me", background color of red & text color of white.
+//Insert the button as the first element inside the body tag.
+let newBtn = document.createElement("button");
+newBtn.innerText = "click me!";
+
+newBtn.style.clolor = "white";
+newBtn.style.backgroundColor = "red";
+
+document.querySelector("body").prepend(newBtn);
+
+//Practice 2: Create a <p> tag in html, give it a class & some styling.
+//Now create a new class in CSS and try to append this class to the <p> element.
+// Did you notice, how you overwrite the class name when you add a new one? 
+// Solve this problem using classlist.
+
+let para = document.querySelector(".content")
+
+
+// Event IN JS:
+// The change in the state of an object is known as an Event
+//Events are fired to notify code of "interesting changes" that may affect code execution
+//Mouse events (click, double click etc.)
+//Keyboard events (keypress, keyup, keydown)
+//Form events (submit etc.)
+//Print event & many more.
+
+//Event Listeners:
+// node.addEventListener(event, callback)
+// node.removeEventListener(event, callback)
+// Note: the callback reference should be same to remove.
+
+let btn1 = document.querySelector("#btn1");
+
+btn1.addEventListener("click", (evt) => {
+    console.log("button1 was clicked - handler1");
+});
+
+btn1.addEventListener("click", () => {
+    console.log("button1 was clicked - handler2");
+});
+
+btn1.addEventListener("click", () => {
+    console.log("button1 was clicked - handler3");
+});
+
+btn1.addEventListener("click", () => {
+    console.log("button1 was clicked - handler4");
+});
+
+btn1.removeEventListener("click", () => {
+    console.log("button1 was clicked - handler5");
+});
+
+//Practice
+// Create a toggle button that changes the screen to dark-mode when clicked & light-mode when clicked again.
+
+let modeBtn = document.querySelector("#mode");
+let body = document.querySelector("body");
+let currMode = "light";  //dark
+
+modeBtn.addEventListener("click", () => {
+    if(currMode === "light") {
+        currMode = "dark";
+        document.querySelector("body").style.backgroundColor = "black";
+        body.classList.add("dark");
+        body.classList.remove("light");
+    } else {
+        currMode = "light";
+        document.querySelector("body").style.backgroundColor = "white";
+        body.classList.add("light");
+        body.classList.remove("dark");
+    }
+    console.log(currMode);
+});
+
+//Protypes in JS
+// A javascript object is an entity having state and behaviour 
+//(propertities and method).
+//JS objects have a special property called prototype.
+//We can set prototype using _ _ proto _ _
+// If object & prototype have same method, object's method will be used.
+
+const student = {
+    fullName : "sapna acharya",
+    marks: 94,
+    printmarks: function() {
+        console.log("marks =", this.marks);
+    },
+};
+
+let arrays = ["apple", "mango", "banana"];
+
+const employee = {
+    calcTax() {
+        console.log("tax rate is 10%");
+    },
+};
+
+const karanArjun = {
+    salary: 50000,
+};
+
+karanArjun.__proto__ = employee;
+
+//Classes in JS
+// Class is a program-code template for creating objects.
+//Those objects will have some state (variables) & some behaviour (functons)
+// inside it.
+class Myclass{
+    constructor(){}
+    mymethod(){}
+}
+
+let myobj = new Myclass();
+
+
+class ToyotaCar {
+      start() {
+        console.log("start");
+    }
+    stop() {
+        console.log("stop");
+    }
+
+    setBrand(brand){
+        this.brand = brand;  //this ma ayeko object ko property
+    }
+}
+
+let fortuner = new ToyotaCar();
+fortuner.setBrand("fortuner");
+let lexus = new ToyotaCar();
+lexus.setBrand("lexus");
+
+//Constructor
+// constructor() method is automatically invoked by new : constructor(){}
+//initializes object : mymethod(){}
+
+//implementing classes
+
+class person {
+    constructor(name) {
+        this.species = "homo sapiens";
+        this.name = name;
+    }
+
+    eat() {
+        console.log("eat");
+    }
+}
+class Engineer extends Person {
+    constructor(name) {
+        super(name); //to invoke parent class constructor
+    }
+    work() {
+        super.eat();
+        console.log("solve problems, build something");
+    }
+}
+let engobj = new Engineer("sapna");
+
+//practice 1: You are creating a website for your college. 
+// Create a class user with 2 properties name & email. 
+//It also has a method called viewData() that allows 
+//user to view website data.
+
+let DATA = "secret information";
+
+class user {
+    constructor(name, email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    viewData() {
+        console.log("data = ", DATA);
+    }
+}
+
+let student1 = new user("shradha", "abc@email.com");
+let student2 = new user("aman", "aman@email.com");
+
+let teacher1 = new user("dean", "dean@college.com");
+
+//Create a new class called Admin which inherits from user.
+// Add a new method called editData to Admin that it to 
+// to edit website data.
+
+let A = 5;
+let B = 10;
+console.log("A =", A);
+console.log("B =", B);
+
